@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  </head>
+  <body>
+
+    <h3>Places API</h3>
+    <form>
+
+    <input  id="searchTextField" type="text" name="search-box">
+
+    <input type="submit" name="Submit">
+    	
+
+
+    </form>
+
+
+    <div id="map"></div>
+    <script>
+
+    var map;
+
+      function createMarkers(place){
+
+      	 var marker = new google.maps.Marker({
+          position: place.geometry.location,
+          map: map
+        });
+
+      }
+
+      function initMap() {
+        var ccLatLng = new google.maps.LatLng(33.813245, -84.362171);
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 8,
+          center: ccLatLng
+        });
+        var marker = new google.maps.Marker({
+          position: ccLatLng,
+          map: map
+        });
+
+   		var mapForm = document.querySelector('form');
+
+   		mapForm.addEventListener('submit', function(e){
+
+   			e.preventDefault();	
+   			var place;
+   			var textInField = document.querySelector('.searchTextField')
+
+   
+   		});
+
+
+
+
+
+	  var defaultBounds = new google.maps.LatLngBounds(
+	  new google.maps.LatLng(-33.8902, 151.1759),
+	  new google.maps.LatLng(-33.8474, 151.2631));
+
+	var input = document.getElementById('searchTextField');
+	var options = {
+	  bounds: defaultBounds,
+	  types: ['establishment']
+};
+
+		autocomplete = new google.maps.places.Autocomplete(input, options);
+
+      }
+    </script>
+
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5nprKxqcLrU_8nkslkNMA2YHiYziQais&libraries=places&callback=initMap"></script>
+  </body>
+</html>
