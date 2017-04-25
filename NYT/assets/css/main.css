@@ -3,14 +3,45 @@ html, body{
 	height: 100%;
 }
 
+.container{
+	width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+	margin-bottom: 20px;
+
+}
 
 
+a {
+
+	font-family: arial;
+	list-style-type: none;
+	text-decoration: none;
+	color: black;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+
+p{
+	font-family: arial;
+}
 
 
+#input{
+	margin-right: 10px;
+}
 
-
-
-
+.submit{
+	width: 100px;
+}
 
 
 

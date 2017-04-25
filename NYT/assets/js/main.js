@@ -12,6 +12,8 @@ function populate(result) {
 		var title = document.createElement('a');
 		var date = document.createElement('p');
 
+		$(article).addClass('article');
+
 		$(title).html(resultResponse[i].headline.main);
 
 		$(title).attr('href', resultResponse[i].web_url);
