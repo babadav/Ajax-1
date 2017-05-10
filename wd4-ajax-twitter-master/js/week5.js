@@ -40,14 +40,14 @@ var TwitterApi = (function(options) {
 
     function processTweetResults(result) {
         var results = JSON.parse(result);
-        console.log(results);
-        console.log(results.length);
+        // console.log(results);
+        // console.log(results.length);
 
         for (var i = 0; i < results.length; i++) {
 
             	 var tweetText = document.createElement('p');
 
-            	 $(tweetText).html(results[i].text);
+            	 $(tweetText).html(findRegex(results[i].text));
 
             	 $('.results-container').append(tweetText);
             };
@@ -55,12 +55,12 @@ var TwitterApi = (function(options) {
 
      function processSearchTweets(result) {
         var results = JSON.parse(result).statuses;
-        console.log(result);
+        // console.log(result);
 
         for (var i = 0; i < results.length; i++) {
             results[i]
             var timelineResult = document.createElement('p');
-            $(timelineResult).html(results[i].text)
+            $(timelineResult).html(findRegex(results[i].text));
             $('.results-container').append(timelineResult);
         }
 
@@ -75,7 +75,7 @@ var TwitterApi = (function(options) {
    
 
     var init = function() {
-        console.log('init()');
+        // console.log('init()');
         setupListeners();
         // $.ajax('twitter-proxy.php?op=search_tweets&q=france')
         // .done(processTweetResults)
@@ -85,4 +85,31 @@ var TwitterApi = (function(options) {
     return shared;
 }());
 
+function findRegex(data) {
+        var urlRegex = /((http|ftp|https)?:\/\/\S+)/g;
+        var atRegex = /(^|\W)(@[a-z\d][\w-]*)/ig;
+        var hashRegex = /(^|\W)(#[a-z\d][\w-]*)/ig;
+        var firstRegex = data.replace(urlRegex,"<a href='$1' style='color:green'>$1</a>");
+        var secondRegex = firstRegex.replace(atRegex, "<a  href='$2' style='color:blue;'>$2</a>");
+        console.log(secondRegex);
+        return secondRegex
+    }
+
 TwitterApi.init();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
