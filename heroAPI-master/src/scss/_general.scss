@@ -1,0 +1,19 @@
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	width: 100%;
+	height: 100vh;
+}
+body {
+	background-image: url(../../src/img/spiderman-bg.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+}
+
+.wrapper {
+	width: 100%;
+	height: 100%;
+}
