@@ -110,7 +110,7 @@ var TwitterApi = (function(options) {
                 } 
                 GoogleModule.createMarker(c, geoData)
                 console.log(geoData);
-            } else{ console.log('whores');
+            } else{ console.log('none');
 
             }
         };
@@ -168,7 +168,7 @@ var GoogleModule = (function(){
           zoom: 8
         });
 
-          createMarker("balls", ccLatLng);
+          createMarker("marker", ccLatLng);
     };
 
     shared = {
